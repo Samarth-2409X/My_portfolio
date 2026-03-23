@@ -127,7 +127,7 @@ export default function About() {
               gridTemplateColumns: "1fr 1fr 1fr",
               borderTop: "1px solid rgba(124,58,237,0.2)",
             }}>
-              {[["10+", "Repos"], ["MERN", "Stack"], ["DSA", "Learner"]].map(([val, label], i) => (
+              {[["10+", "Repos"], ["MERN", "Stack"], ["DSA", "Problem Solver"]].map(([val, label], i) => (
                 <div key={label} style={{
                   padding: "0.9rem 0",
                   textAlign: "center",
@@ -220,8 +220,7 @@ export default function About() {
             marginBottom: "2rem",
           }}>
             Currently sharpening my Data Structures & Algorithms skills while
-            building full-stack projects in the FinTech and knowledge management
-            space. I love clean architecture, good APIs, and shipping things that work.
+            building ExileDraw, a real-time chat application with Next.js, focused on scalable systems, clean architecture, and smooth real-time interactions.
           </p>
 
           {/* Social links */}
@@ -279,9 +278,9 @@ export default function About() {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
               {[
-                " Building Full Stack projects (FinTech & knowledge apps)",
-                " Practicing Data Structures and Algorithms",
-                " Open to collaborate on MERN stack apps",
+                " Developing ExileDraw, a real-time chat application using Next.js",
+                " Practicing Data Structures & Algorithms (200+ LeetCode problems solved)",
+                " Open to collaboration on scalable MERN stack projects",
               ].map((item) => (
                 <div key={item} style={{
                   fontFamily: "'DM Sans', sans-serif",

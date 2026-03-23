@@ -343,8 +343,9 @@ export default function Hero() {
           opacity: 0,
           animation: "fadeUp 0.6s ease 0.65s forwards",
         }}>
-          MERN Stack enthusiast @ KLE Tech University, Hubli.
-          Turning real-world ideas into production-ready apps. Currently leveling up with DSA. 🚀
+          MERN Stack Enthusiast @ KLE Tech University Hubli,
+          Turning real-world ideas into production-ready applications.
+          Solved 200+ LeetCode problems and continuously improving problem-solving skills 🚀
         </p>
 
         <div style={{
