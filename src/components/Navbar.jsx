@@ -9,7 +9,7 @@ export default function Navbar({ active, setActive }) {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const links = ["home", "about", "skills", "projects", "contact"];
+  const links = ["home", "about", "skills", "certificates", "projects", "contact"];
 
   // Smooth scroll to section by id
   const handleNavClick = (e, link) => {
@@ -92,6 +92,7 @@ export default function Navbar({ active, setActive }) {
                 transform: active === link ? "scaleX(1)" : "scaleX(0)",
                 transition: "transform 0.25s ease",
                 transformOrigin: "center",
+                display: "block", 
               }}
             />
           </button>

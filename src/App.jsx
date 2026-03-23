@@ -6,8 +6,9 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Certificates from "./components/Certificates";
 
-const SECTIONS = ["home", "about", "skills", "projects", "contact"];
+const SECTIONS = ["home", "about", "skills", "certificates", "projects", "contact"];
 
 export default function App() {
   const [active, setActive] = useState("home");
@@ -44,6 +45,7 @@ export default function App() {
       <Hero />
       <About />
       <Skills />
+      <Certificates /> 
       <Projects />
       <Contact />
       <Footer />
