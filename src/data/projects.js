@@ -4,7 +4,7 @@ export const projects = [
     name: "Second Brain",
     subtitle: "Full Stack Knowledge App",
     description:
-      "A full-stack system to store, organize, and share knowledge using links, tags, and content types. Features JWT auth, shareable brain links via unique hash, and tag normalization.",
+      "Designed and developed a full-stack knowledge management platform to store, organize, and share content using links, tags, and content types. Built with JWT-based authentication, unique hash-based sharing (“brain links”), and efficient tag normalization for scalable data handling.",
     tags: ["TypeScript", "Node.js", "Express", "MongoDB", "JWT", "React"],
     type: "Full Stack",
     frontendUrl: "https://github.com/Samarth-2409X/BrainlyFrontend",
@@ -17,7 +17,7 @@ export const projects = [
     name: "Pocket Money",
     subtitle: "FinTech Web App",
     description:
-      "A personal finance tracking application for managing daily expenses, budgets, and money flow — built to solve real financial tracking problems.",
+      "Designed and developed a personal finance tracking application to manage daily expenses, budgets, and cash flow, Focused on solving real-world financial tracking challenges with a clean and user-friendly experience.",
     tags: ["JavaScript", "Node.js", "MongoDB", "Express"],
     type: "Full Stack",
     url: "https://github.com/Samarth-2409X/Pocket_Money",
