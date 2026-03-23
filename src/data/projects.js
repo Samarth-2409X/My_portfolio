@@ -29,7 +29,7 @@ export const projects = [
     name: "Course Selling App",
     subtitle: "Backend API",
     description:
-      "RESTful backend for an e-learning platform enabling course management, user authentication, and content delivery at scale.",
+      "Designed and developed a RESTful backend for an e-learning platform, enabling course management, user authentication, and scalable content delivery.",
     tags: ["JavaScript", "Node.js", "Express", "MongoDB"],
     type: "Backend",
     url: "https://github.com/Samarth-2409X/course_selling_app_backend",
