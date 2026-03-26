@@ -86,7 +86,9 @@ export default function Hero() {
           I build <span style={{color:"#c4b5fd",borderRight:"2px solid #7c3aed",paddingRight:2}}>{typed}</span>
         </div>
         <p style={{fontFamily:"'DM Sans',sans-serif",fontSize:"clamp(.85rem,3vw,1rem)",color:"rgba(255,255,255,.48)",lineHeight:1.75,maxWidth:480,marginBottom:"2rem",opacity:0,animation:"fadeUp .6s ease .65s forwards"}}>
-          MERN Stack enthusiast @ KLE Tech University, Hubli. Turning real-world ideas into production-ready apps. Currently leveling up with DSA. 🚀
+          MERN Stack Enthusiast @ KLE Tech University, Hubli
+          Turning real-world ideas into production-ready applications.
+          Solved 200+ LeetCode problems and continuously improving problem-solving skills 🚀
         </p>
         <div style={{display:"flex",gap:".8rem",flexWrap:"wrap",opacity:0,animation:"fadeUp .6s ease .8s forwards"}}>
           <button onClick={()=>scrollTo("projects")} style={{background:"linear-gradient(135deg,#7c3aed,#5b21b6)",color:"#fff",padding:".75rem 1.5rem",borderRadius:6,fontFamily:"'DM Sans',sans-serif",fontWeight:600,fontSize:".9rem",border:"none",cursor:"pointer",boxShadow:"0 4px 24px rgba(124,58,237,.4)",whiteSpace:"nowrap"}}>View Projects</button>

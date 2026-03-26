@@ -47,10 +47,19 @@ export default function About() {
               Building things that<br/><span style={{color:"#7c3aed"}}>matter.</span>
             </h2>
             <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.55)",lineHeight:1.8,fontSize:"0.95rem",marginBottom:"1.2rem"}}>
-              Hey! I'm Samarth — a Full Stack Developer and MERN Stack enthusiast studying at KLE Tech University, Hubli. I'm passionate about turning ideas into real, working products that solve real problems.
+              Hey! I'm Samarth — a Full Stack Developer and MERN Stack enthusiast
+              studying at KLE Tech University, Hubli. I’m passionate about turning ideas into
+              real, scalable products that solve meaningful problems.
             </p>
+
             <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.55)",lineHeight:1.8,fontSize:"0.95rem",marginBottom:"1.8rem"}}>
-              Currently sharpening my Data Structures and Algorithms skills while building full-stack projects in FinTech and knowledge management space.
+              I’ve solved 200+ LeetCode problems, strengthening my foundation in
+              Data Structures & Algorithms, and I continuously work on improving my
+              problem-solving skills.
+            </p>
+
+            <p style={{fontFamily:"'DM Sans',sans-serif",color:"rgba(255,255,255,0.55)",lineHeight:1.8,fontSize:"0.95rem",marginBottom:"1.8rem"}}>
+              Currently, I’m building ExileDraw, a real-time chat application with Next.js, focused on scalable systems, clean architecture, and smooth real-time interactions.
             </p>
             <div style={{display:"flex",gap:"0.7rem",flexWrap:"wrap",marginBottom:"1.8rem"}}>
               {[{label:"GitHub",url:"https://github.com/Samarth-2409X"},{label:"LinkedIn",url:"https://www.linkedin.com/in/samarth-shirahatti-9bb8962a3/"},{label:"Email",url:"mailto:samarthgone667@gmail.com"}].map(s=>(
@@ -63,7 +72,7 @@ export default function About() {
             </div>
             <div style={{background:"rgba(124,58,237,0.06)",border:"1px solid rgba(124,58,237,0.2)",borderRadius:"12px",padding:"1.2rem 1.4rem",borderLeft:"3px solid #7c3aed"}}>
               <div style={{fontFamily:"'DM Mono',monospace",fontSize:"0.68rem",color:"#7c3aed",letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:"0.6rem"}}>Currently</div>
-              {["🔭 Building Full Stack projects (FinTech & knowledge apps)","🌱 Practicing Data Structures and Algorithms","👯 Open to collaborate on MERN stack apps"].map(item=>(
+              {["Building ExileDraw, a real-time chat application","Solved 200+ LeetCode problems and actively improving DSA","Open to collaboration on scalable MERN stack projects"].map(item=>(
                 <div key={item} style={{fontFamily:"'DM Sans',sans-serif",fontSize:"0.85rem",color:"rgba(255,255,255,0.6)",lineHeight:1.6,marginBottom:"0.3rem"}}>{item}</div>
               ))}
             </div>
