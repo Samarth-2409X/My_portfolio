@@ -24,6 +24,17 @@ const certificates = [
   image: "/certificate-2.jpg",
   emoji: "💻",
   color: "#2563eb",
+},
+{
+  id: 3,
+  title: "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
+  issuer: "Oracle University",
+  date: "October 22, 2025",
+  description: "Demonstrated foundational knowledge of Oracle Cloud Infrastructure (OCI) public cloud services including Compute, Storage, Networking, Database, Developer, Analytics, AI, Observability, and Hybrid services. Validated understanding of OCI security, identity model, compliance structure, billing, cost management, governance, and administration.",
+  credentialUrl: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=E5E0DE9CA2DDF3B59BDD3C4C844786B7947DAD7AB74185C899DE4FCC06F5DD97",
+  image: "/certificate-3.jpg",
+  emoji: "☁️",
+  color: "#C74634",
 }
   
 ];
