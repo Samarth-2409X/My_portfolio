@@ -13,10 +13,10 @@ const SECTIONS = ["home", "about", "skills", "certificates", "projects", "contac
 export default function App() {
   const [active, setActive] = useState("home");
 
-  // Track which section is in view as user scrolls
+  
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY + 100; // offset for navbar height
+      const scrollY = window.scrollY + 100; 
       for (let i = SECTIONS.length - 1; i >= 0; i--) {
         const el = document.getElementById(SECTIONS[i]);
         if (el && scrollY >= el.offsetTop) {

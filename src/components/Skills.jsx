@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
-// ── Skill data with icons (SVG paths / colored icons) and levels ──
+
 const skillCategories = [
   {
     category: "Languages",
-    emoji: "💻",
     color: "#f7df1e",
     skills: [
       { name: "JavaScript", level: 75, icon: "js",    color: "#f7df1e" },
@@ -18,7 +17,6 @@ const skillCategories = [
   },
   {
     category: "Frontend",
-    emoji: "🎨",
     color: "#61dafb",
     skills: [
       { name: "React",        level: 82, icon: "react",    color: "#61dafb" },
@@ -29,7 +27,6 @@ const skillCategories = [
   },
   {
     category: "Backend",
-    emoji: "⚙️",
     color: "#6da55f",
     skills: [
       { name: "Node.js",    level: 80, icon: "node",    color: "#6da55f" },
@@ -40,7 +37,6 @@ const skillCategories = [
   },
   {
     category: "Databases",
-    emoji: "🗄️",
     color: "#4ea94b",
     skills: [
       { name: "MongoDB",    level: 78, icon: "mongo",    color: "#4ea94b" },
@@ -50,18 +46,70 @@ const skillCategories = [
   },
   {
     category: "Tools",
-    emoji: "🛠️",
     color: "#f05032",
     skills: [
       { name: "Git",    level: 82, icon: "git",    color: "#f05032" },
       { name: "GitHub", level: 85, icon: "github", color: "#ffffff" },
       { name: "NPM",    level: 80, icon: "npm",    color: "#cb3837" },
+      { name: "pnpm",   level: 75, icon: "pnpm",   color: "#f69220" },
       { name: "VS Code",level: 90, icon: "vscode", color: "#007acc" },
     ],
   },
 ];
 
-// ── Icon components (inline SVGs for each tech) ──────────────
+
+function CategoryLogo({ category, color, size = 22 }) {
+  const logos = {
+    Languages: (
+      
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+        <line x1="14" y1="4" x2="10" y2="20" />
+      </svg>
+    ),
+    Frontend: (
+      
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+        <path d="M7 8l3 3-3 3" />
+        <line x1="13" y1="14" x2="17" y2="14" />
+      </svg>
+    ),
+    Backend: (
+      
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="8" rx="2" />
+        <rect x="2" y="14" width="20" height="8" rx="2" />
+        <line x1="6" y1="6" x2="6.01" y2="6" strokeWidth="2.5" />
+        <line x1="6" y1="18" x2="6.01" y2="18" strokeWidth="2.5" />
+        <line x1="10" y1="6" x2="10.01" y2="6" strokeWidth="2.5" />
+        <line x1="10" y1="18" x2="10.01" y2="18" strokeWidth="2.5" />
+      </svg>
+    ),
+    Databases: (
+      
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M3 5v4c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
+        <path d="M3 9v4c0 1.657 4.03 3 9 3s9-1.343 9-3V9" />
+        <path d="M3 13v4c0 1.657 4.03 3 9 3s9-1.343 9-3v-4" />
+      </svg>
+    ),
+    Tools: (
+      
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+      </svg>
+    ),
+  };
+
+  return logos[category] || null;
+}
+
+
 function TechIcon({ icon, color, size = 22 }) {
   const icons = {
     js: (
@@ -126,12 +174,12 @@ function TechIcon({ icon, color, size = 22 }) {
     ),
     mysql: (
       <svg viewBox="0 0 24 24" width={size} height={size} fill={color}>
-        <path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.151zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.357-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.152 1.41.455l-.217.494a2.23 2.23 0 00-1.18-.366c-.288 0-.52.068-.694.204a.622.622 0 00-.26.514c0 .32.236.59.705.sulk.045.03 1.15.645 1.15.645.508.3.762.645.762 1.17z"/>
+        <path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.151zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.357-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.152 1.41.455l-.217.494a2.23 2.23 0 00-1.18-.366c-.288 0-.52.068-.694.204a.622.622 0 00-.26.514c0 .32.236.59.705.84l.045.03 1.15.645c.508.3.762.645.762 1.17z"/>
       </svg>
     ),
     postgres: (
       <svg viewBox="0 0 24 24" width={size} height={size} fill={color}>
-        <path d="M23.5594 14.7228c-.2665-.3432-.6368-.5686-1.0695-.6497a2.3437 2.3437 0 00-.2578-.0277c.1215-.3499.158-.7338.0826-1.1046-.1278-.6274-.5267-1.124-1.1244-1.3985l-.0212-.0098v-.0232c.0025-.9154-.3286-1.6911-1.0079-2.1927-.5924-.436-1.3568-.5786-2.2262-.4193v-.0073c.2442-.5748.3006-1.2348.1485-1.8627C17.7194 6.042 16.7428 5.2 15.4992 5.0148c-.7267-.1082-1.4556.0339-2.0454.4041-.3073-1.3432-1.247-2.3543-2.5455-2.667C9.6874 2.3782 8.2068 2.908 7.335 4.0427 7.0265 3.9236 6.6978 3.8568 6.3565 3.8568c-1.5368 0-2.7868 1.248-2.7868 2.7825v.0252C2.8372 6.9454 2.1594 7.5742 2.0284 8.4307a2.392 2.392 0 00.3478 1.729c-.5748.4427-.9162 1.128-.9162 1.8653 0 1.0437.6702 1.9397 1.6237 2.2631-.0562.2288-.0826.466-.0826.7068 0 1.614 1.3105 2.9245 2.9245 2.9245.0826 0 .1636-.0043.2441-.0105.2393.7648.8564 1.3716 1.6362 1.5902.2074.0585.4194.0876.6328.0876.5891 0 1.1588-.2204 1.5998-.6165.4394.4019 1.0195.6488 1.6619.6488.576 0 1.1069-.1957 1.527-.521.6386.6997 1.5513 1.1255 2.5488 1.1255 1.9164 0 3.472-1.556 3.472-3.472 0-.2072-.0183-.4101-.0532-.607a2.427 2.427 0 001.3584-1.2765 2.4245 2.4245 0 00-.0146-1.9153zm-8.2392-7.9818c.4193.0625.7553.259.9792.5694.1985.2793.2803.6274.2443.9932-.3434-.3079-.7553-.5304-1.2204-.6385-.1117-.0255-.2249-.0422-.3381-.0508.1243-.327.2008-.6022.3306-.8733zm-4.5073 2.1698c.0696-.0016.1393-.001.2085.0023.5026.0245.9727.2261 1.3386.5688.3536.332.5736.7804.629 1.264-.3516-.167-.7345-.2739-1.1376-.3061a4.9703 4.9703 0 00-.5882-.0105c-.2443 0-.4849.0207-.72.0585.01-.0567.018-.1148.018-.1741a2.0624 2.0624 0 00-.5626-1.4169c.2703-.066.5382-.0987.808-.086zm-5.2012.0073c.2765 0 .5426.0533.7891.1482-.3914.3942-.6424.9136-.6979 1.5022-.0049.0487-.008.0987-.0088.1482-.2346-.0401-.4772-.0625-.726-.0625-.1875 0-.372.016-.5518.0432.0054-.0624.01-.1253.01-.1893.0007-.8473.6878-1.5334 1.535-1.5334h.048zm1.3478 9.5985c-.1254.0004-.2503-.014-.3722-.0432-.5204-.1283-.9272-.5192-1.0804-1.034-.0365-.1224-.0546-.2484-.0546-.3752 0-.0877.0105-.1745.0296-.2589.1473.0222.2968.0355.4495.0355.7506 0 1.4434-.2726 1.9845-.7219l.0175.1124c.0736.4604-.0336.9406-.2881 1.3254-.2524.3814-.6534.6472-1.0908.74a1.2638 1.2638 0 01-.195.015zm4.1897.4258c-.3853 0-.7455-.1472-1.0195-.4125.5534-.4678.9272-1.1378 1.0045-1.8914.3898.2578.7145.6047.9453 1.0186a1.5408 1.5408 0 01-.9303 1.285zm3.5014 1.7614c-1.0825 0-1.9634-.8799-1.9634-1.9623 0-.0567.003-.1134.008-.169.1965.0498.4.0763.6092.0763.5866 0 1.131-.1946 1.5672-.5194.2966.4193.4716.9257.4716 1.4702.0005.5636-.2186 1.093-.617 1.4927a1.9632 1.9632 0 01-1.0756.607z"/>
+        <path d="M23.5594 14.7228c-.2665-.3432-.6368-.5686-1.0695-.6497a2.3437 2.3437 0 00-.2578-.0277c.1215-.3499.158-.7338.0826-1.1046-.1278-.6274-.5267-1.124-1.1244-1.3985l-.0212-.0098v-.0232c.0025-.9154-.3286-1.6911-1.0079-2.1927-.5924-.436-1.3568-.5786-2.2262-.4193v-.0073c.2442-.5748.3006-1.2348.1485-1.8627C17.7194 6.042 16.7428 5.2 15.4992 5.0148c-.7267-.1082-1.4556.0339-2.0454.4041-.3073-1.3432-1.247-2.3543-2.5455-2.667C9.6874 2.3782 8.2068 2.908 7.335 4.0427 7.0265 3.9236 6.6978 3.8568 6.3565 3.8568c-1.5368 0-2.7868 1.248-2.7868 2.7825v.0252C2.8372 6.9454 2.1594 7.5742 2.0284 8.4307a2.392 2.392 0 00.3478 1.729c-.5748.4427-.9162 1.128-.9162 1.8653 0 1.0437.6702 1.9397 1.6237 2.2631-.0562.2288-.0826.466-.0826.7068 0 1.614 1.3105 2.9245 2.9245 2.9245.0826 0 .1636-.0043.2441-.0105.2393.7648.8564 1.3716 1.6362 1.5902.2074.0585.4194.0876.6328.0876.5891 0 1.1588-.2204 1.5998-.6165.4394.4019 1.0195.6488 1.6619.6488.576 0 1.1069-.1957 1.527-.521.6386.6997 1.5513 1.1255 2.5488 1.1255 1.9164 0 3.472-1.556 3.472-3.472 0-.2072-.0183-.4101-.0532-.607a2.427 2.427 0 001.3584-1.2765 2.4245 2.4245 0 00-.0146-1.9153z"/>
       </svg>
     ),
     git: (
@@ -147,6 +195,12 @@ function TechIcon({ icon, color, size = 22 }) {
     npm: (
       <svg viewBox="0 0 24 24" width={size} height={size} fill={color}>
         <path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113z"/>
+      </svg>
+    ),
+    
+    pnpm: (
+      <svg viewBox="0 0 24 24" width={size} height={size} fill={color}>
+        <path d="M0 0v7.5h7.5V0zm8.25 0v7.5h7.5V0zm8.25 0v7.5H24V0zM8.25 8.25v7.5h7.5v-7.5zm8.25 0v7.5H24v-7.5zM0 16.5V24h7.5v-7.5zm8.25 0V24h7.5v-7.5zm8.25 0V24H24v-7.5z"/>
       </svg>
     ),
     vscode: (
@@ -176,7 +230,7 @@ function TechIcon({ icon, color, size = 22 }) {
   );
 }
 
-// ── Animated progress bar ─────────────────────────────────────
+
 function ProgressBar({ level, color, animate }) {
   return (
     <div style={{
@@ -198,7 +252,7 @@ function ProgressBar({ level, color, animate }) {
   );
 }
 
-// ── Single skill row ──────────────────────────────────────────
+
 function SkillRow({ skill, animate }) {
   const [hovered, setHovered] = useState(false);
 
@@ -218,10 +272,8 @@ function SkillRow({ skill, animate }) {
         cursor: "default",
       }}
     >
-      {/* Icon + Name + Percentage */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-          {/* Icon circle */}
           <div style={{
             width: 32,
             height: 32,
@@ -247,7 +299,6 @@ function SkillRow({ skill, animate }) {
             {skill.name}
           </span>
         </div>
-        {/* Percentage */}
         <span style={{
           fontFamily: "'DM Mono', monospace",
           fontSize: "0.7rem",
@@ -260,14 +311,13 @@ function SkillRow({ skill, animate }) {
         </span>
       </div>
 
-      {/* Progress bar */}
       <ProgressBar level={skill.level} color={skill.color} animate={animate} />
     </div>
   );
 }
 
-// ── Category card ─────────────────────────────────────────────
-function CategoryCard({ category, emoji, color, skills, delay }) {
+
+function CategoryCard({ category, color, skills, delay }) {
   const cardRef = useRef(null);
   const [animate, setAnimate] = useState(false);
 
@@ -305,7 +355,7 @@ function CategoryCard({ category, emoji, color, skills, delay }) {
           e.currentTarget.style.boxShadow = "none";
         }}
       >
-        {/* Top accent */}
+        
         <div style={{
           position: "absolute",
           top: 0, left: 0, right: 0,
@@ -313,9 +363,23 @@ function CategoryCard({ category, emoji, color, skills, delay }) {
           background: `linear-gradient(90deg, transparent, ${color}88, transparent)`,
         }} />
 
-        {/* Category header */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1.4rem" }}>
-          <span style={{ fontSize: "1.3rem" }}>{emoji}</span>
+       
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.4rem" }}>
+          
+          <div style={{
+            width: 36,
+            height: 36,
+            borderRadius: "9px",
+            background: `${color}15`,
+            border: `1px solid ${color}35`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}>
+            <CategoryLogo category={category} color={color} size={18} />
+          </div>
+
           <span style={{
             fontFamily: "'DM Mono', monospace",
             fontSize: "0.72rem",
@@ -328,7 +392,7 @@ function CategoryCard({ category, emoji, color, skills, delay }) {
           </span>
         </div>
 
-        {/* Skills list */}
+        
         <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
           {skills.map((skill) => (
             <SkillRow key={skill.name} skill={skill} animate={animate} />
@@ -345,7 +409,6 @@ export default function Skills() {
     <section id="skills" style={{ padding: "7rem 6vw", background: "rgba(124,58,237,0.03)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-        
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div style={{
@@ -384,7 +447,6 @@ export default function Skills() {
           </div>
         </AnimatedSection>
 
-        
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
@@ -394,7 +456,6 @@ export default function Skills() {
             <CategoryCard
               key={cat.category}
               category={cat.category}
-              emoji={cat.emoji}
               color={cat.color}
               skills={cat.skills}
               delay={i * 80}

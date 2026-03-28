@@ -7,7 +7,7 @@ export default function About() {
       <div ref={ref} style={{maxWidth:"900px",margin:"0 auto",opacity:visible?1:0,transform:visible?"none":"translateY(40px)",transition:"all 0.8s ease"}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:"3rem",alignItems:"start"}}>
 
-          {/* Photo Card */}
+         
           <div style={{position:"relative",maxWidth:"380px",margin:"0 auto",width:"100%"}}>
             <div style={{position:"absolute",inset:"-20px",borderRadius:"24px",background:"radial-gradient(circle at 40% 40%,rgba(124,58,237,0.25),transparent 70%)",zIndex:0,filter:"blur(16px)"}} />
             <div style={{position:"relative",zIndex:1,borderRadius:"20px",overflow:"hidden",border:"1px solid rgba(124,58,237,0.35)",boxShadow:"0 24px 60px rgba(0,0,0,0.5)",background:"#0a0015"}}>
@@ -38,7 +38,7 @@ export default function About() {
             <div style={{position:"absolute",top:"-10px",left:"-10px",width:"28px",height:"28px",border:"2px solid rgba(124,58,237,0.25)",borderRadius:"4px",zIndex:0}} />
           </div>
 
-          {/* Text */}
+          
           <div>
             <div style={{fontFamily:"'DM Mono',monospace",fontSize:"0.78rem",color:"#a78bfa",letterSpacing:"0.16em",textTransform:"uppercase",marginBottom:"1rem",display:"flex",alignItems:"center",gap:"0.6rem"}}>
               <span style={{width:"24px",height:"1px",background:"#7c3aed",display:"inline-block"}} />About Me

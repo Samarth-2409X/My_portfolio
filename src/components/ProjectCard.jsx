@@ -23,7 +23,7 @@ export default function ProjectCard({ project, delay }) {
           overflow: "hidden",
         }}
       >
-        {/* Top accent line on hover */}
+        
         {hovered && (
           <div style={{
             position: "absolute", top: 0, left: 0, right: 0,

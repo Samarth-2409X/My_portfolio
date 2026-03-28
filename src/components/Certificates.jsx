@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 
-// ── Add your certificates here ────────────────────────────────
+
 const certificates = [
   {
     id: 1,
@@ -28,7 +28,7 @@ const certificates = [
   
 ];
 
-// ── Full screen modal when clicking certificate image ─────────
+
 function ImageModal({ src, title, onClose }) {
   return (
     <div
@@ -56,7 +56,7 @@ function ImageModal({ src, title, onClose }) {
           animation: "fadeUp 0.3s ease forwards",
         }}
       >
-        {/* Close button */}
+        
         <button
           onClick={onClose}
           style={{
@@ -80,7 +80,7 @@ function ImageModal({ src, title, onClose }) {
           ✕ Close
         </button>
 
-        {/* Certificate image */}
+        
         <img
           src={src}
           alt={title}
@@ -107,7 +107,7 @@ function ImageModal({ src, title, onClose }) {
   );
 }
 
-// ── Single certificate card ───────────────────────────────────
+
 function CertCard({ cert, delay, onImageClick }) {
   const [hovered, setHovered] = useState(false);
   const [imgHovered, setImgHovered] = useState(false);
@@ -131,7 +131,7 @@ function CertCard({ cert, delay, onImageClick }) {
           position: "relative",
         }}
       >
-        {/* Top color accent line */}
+       
         <div style={{
           position: "absolute",
           top: 0, left: 0, right: 0,
@@ -140,7 +140,7 @@ function CertCard({ cert, delay, onImageClick }) {
           zIndex: 1,
         }} />
 
-        {/* ── Certificate image preview ── */}
+       
         <div
           onClick={() => onImageClick(cert)}
           onMouseEnter={() => setImgHovered(true)}
@@ -171,7 +171,7 @@ function CertCard({ cert, delay, onImageClick }) {
             }}
           />
 
-          {/* Hover zoom overlay */}
+          
           <div style={{
             position: "absolute",
             inset: 0,
@@ -197,7 +197,7 @@ function CertCard({ cert, delay, onImageClick }) {
             </div>
           </div>
 
-          {/* Bottom gradient fade into card */}
+          
           <div style={{
             position: "absolute",
             bottom: 0, left: 0, right: 0,
@@ -207,10 +207,10 @@ function CertCard({ cert, delay, onImageClick }) {
           }} />
         </div>
 
-        {/* ── Card content ── */}
+  
         <div style={{ padding: "1.3rem 1.4rem 1.5rem", flex: 1, display: "flex", flexDirection: "column" }}>
 
-          {/* Emoji + verified badge */}
+          
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
             <span style={{ fontSize: "1.5rem" }}>{cert.emoji}</span>
             <div style={{
@@ -227,7 +227,7 @@ function CertCard({ cert, delay, onImageClick }) {
             </div>
           </div>
 
-          {/* Title */}
+          
           <div style={{
             fontFamily: "'Syne', sans-serif",
             fontWeight: 700,
@@ -239,7 +239,7 @@ function CertCard({ cert, delay, onImageClick }) {
             {cert.title}
           </div>
 
-          {/* Issuer · Date */}
+          
           <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.75rem" }}>
             <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#a78bfa" }}>
               {cert.issuer}
@@ -250,7 +250,7 @@ function CertCard({ cert, delay, onImageClick }) {
             </span>
           </div>
 
-          {/* Description */}
+         
           <p style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.83rem",
@@ -262,10 +262,10 @@ function CertCard({ cert, delay, onImageClick }) {
             {cert.description}
           </p>
 
-          {/* ── Action buttons ── */}
+          
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
 
-            {/* View Photo button — always show */}
+            
             <button
               onClick={() => onImageClick(cert)}
               style={{
@@ -292,7 +292,7 @@ function CertCard({ cert, delay, onImageClick }) {
               🖼 View Photo
             </button>
 
-            {/* Credential button — only show if URL exists */}
+            
             {cert.credentialUrl && (
               <a
                 href={cert.credentialUrl}
@@ -330,7 +330,7 @@ function CertCard({ cert, delay, onImageClick }) {
   );
 }
 
-// ── Main Certificates section ─────────────────────────────────
+
 export default function Certificates() {
   const [modalCert, setModalCert] = useState(null);
 
@@ -338,7 +338,7 @@ export default function Certificates() {
     <section id="certificates" style={{ padding: "7rem 6vw", background: "rgba(124,58,237,0.03)" }}>
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
 
-        {/* Header */}
+        
         <AnimatedSection>
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
             <div style={{
@@ -377,7 +377,7 @@ export default function Certificates() {
           </div>
         </AnimatedSection>
 
-        {/* Cards grid */}
+     
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))",
@@ -394,7 +394,7 @@ export default function Certificates() {
         </div>
       </div>
 
-      {/* Full screen image modal */}
+     
       {modalCert && (
         <ImageModal
           src={modalCert.image}
