@@ -29,7 +29,7 @@ export default function Contact() {
             Let's <span style={{ color: "#7c3aed" }}>build</span> something
           </h2>
           <p style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(255,255,255,0.5)", lineHeight: 1.8, fontSize: "1rem", marginBottom: "3rem" }}>
-            I'm open to collaborating on MERN stack projects, freelance work, or just a great conversation about tech.
+            Focused on building high-quality MERN stack applications and meaningful tech solutions.
           </p>
         </AnimatedSection>
 
