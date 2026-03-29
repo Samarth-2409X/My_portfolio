@@ -26,7 +26,7 @@ export default function About() {
                 </div>
               </div>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",borderTop:"1px solid rgba(124,58,237,0.2)"}}>
-                {[["10+","Repos"],["MERN","Stack"],["DSA","Learner"]].map(([val,label],i)=>(
+                {[["10+","Repos"],["MERN","Stack"],["DSA","Problem Solver"]].map(([val,label],i)=>(
                   <div key={label} style={{padding:"0.9rem 0",textAlign:"center",borderRight:i<2?"1px solid rgba(124,58,237,0.2)":"none",background:"rgba(124,58,237,0.04)"}}>
                     <div style={{fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:"1rem",color:"#a78bfa"}}>{val}</div>
                     <div style={{fontFamily:"'DM Mono',monospace",fontSize:"0.58rem",color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:"0.08em",marginTop:"0.15rem"}}>{label}</div>
