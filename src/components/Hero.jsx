@@ -41,7 +41,7 @@ function GlowOrb() {
   const labels=[{text:"React",angle:0,r:195},{text:"Node.js",angle:72,r:190},{text:"MongoDB",angle:144,r:198},{text:"TypeScript",angle:216,r:192},{text:"Express",angle:288,r:196}];
   return (
     <div className="glow-orb" style={{position:"absolute",top:"50%",right:"7vw",transform:"translateY(-50%)",width:320,height:320,zIndex:1,pointerEvents:"none",animation:"orbFloat 6s ease-in-out infinite"}}>
-      <div style={{position:"absolute",inset:-30,borderRadius:"50%",background:"radial-gradient(circle,rgba(124,58,237,.15) 0%,transparent 70%)",animation:"orbPulse 4s ease-in-out infinite"}} />
+      <div style={{position:"absolute",inset:-30,borderRadius:"50%",background:"radial-gradient(circle,rgba(109,40,217,.35) 0%,transparent 70%)",animation:"orbPulse 4s ease-in-out infinite"}} />
       <div style={{position:"absolute",inset:0,borderRadius:"50%",background:"radial-gradient(circle at 35% 35%,rgba(167,139,250,.5),rgba(109,40,217,.65) 50%,rgba(5,0,15,.85))",boxShadow:"0 0 60px rgba(124,58,237,.5),0 0 120px rgba(124,58,237,.2),inset 0 0 40px rgba(167,139,250,.15)",animation:"orbMorph 8s ease-in-out infinite"}} />
       <div style={{position:"absolute",top:"18%",left:"22%",width:"35%",height:"30%",borderRadius:"50%",background:"radial-gradient(circle,rgba(255,255,255,.18),transparent)"}} />
       <div style={{position:"absolute",inset:-22,borderRadius:"50%",animation:"orbit 5s linear infinite"}}>
@@ -74,7 +74,7 @@ export default function Hero() {
   return (
     <section id="home" style={{minHeight:"100vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden",padding:"80px 6vw 2rem"}}>
       <ParticleCanvas />
-      <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(124,58,237,1) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,1) 1px,transparent 1px)",backgroundSize:"60px 60px",pointerEvents:"none",zIndex:0}} />
+      <div style={{position:"absolute",inset:0,opacity:.04,backgroundImage:"linear-gradient(rgba(124,58,237,1) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,1) 1px,transparent 1px)",backgroundSize:"60px 60px",pointerEvents:"none",zIndex:0}} />
       <div style={{position:"relative",zIndex:2,maxWidth:600,width:"100%"}}>
         <div style={{fontFamily:"'DM Mono',monospace",fontSize:".78rem",color:"#a78bfa",letterSpacing:".16em",textTransform:"uppercase",marginBottom:"1rem",display:"flex",alignItems:"center",gap:".6rem",opacity:0,animation:"fadeUp .6s ease .2s forwards"}}>
           <span style={{width:28,height:1,background:"#7c3aed",display:"inline-block",flexShrink:0}} />Full Stack Developer

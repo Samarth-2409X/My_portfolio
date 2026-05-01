@@ -30,7 +30,7 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ background: "#05000f", minHeight: "100vh", color: "#fff" }}>
+    <div style={{ background: "#030010", minHeight: "100vh", color: "#fff" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500;600&display=swap');
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
